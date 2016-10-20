@@ -1,0 +1,193 @@
+// Project Name: Sass-Sheet Website Stylesheet
+// Author: Vadim Rob
+
+// Imports
+
+@import "../../public/components/prism.css";
+@import "../../public/components/sass-bootstrap/lib/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
+
+// Colors
+
+$darkpink: #C4558C;
+$mediumpink: #F4ACB7;
+$lightpink: #FFCAD4;
+$lightgreen: #D8E2DC;
+$skin: #FFE5D9;
+
+
+// Vertical Rhythm
+
+$base-font-size: 1rem;
+$base-line-height: $base-font-size * 1.25;
+
+
+// Fonts
+
+$llight: 300;
+$lregular: 400;
+$lmedium: 700;
+$lbold: 900;
+
+@mixin font ($font_weight) {
+	
+		font-family: 'Lato';
+		font-weight: $font_weight;
+		
+	}
+
+html { font-size: 62.5%; }  /* =10px */
+body { font-size: 1.6rem; line-height: 1.61803399; } /* =14px */
+p	 { font-size: 1.4rem; @include font ($lregular); }
+h1   { font-size: 4.4rem; @include font ($llight); } 
+h2	 { font-size: 3.3rem; @include font ($lregular); color:$darkpink; }
+h3	 { font-size: 2.2rem; @include font ($lbold);}
+a 	 { color: $mediumpink; }
+
+.container-fluid {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.topbar {
+	
+	height: 0.4rem;
+	background-image: linear-gradient(-90deg, $darkpink 0%, $skin 29%, $lightpink 52%, $lightgreen 76%, $mediumpink 100%);
+	margin-bottom: $base-line-height * 3;
+}
+	
+.header {
+	
+	@extend .text-center, .row;
+	
+	img {
+	
+		width: 100%;
+		max-width: 33rem;
+		margin-bottom: $base-line-height;
+		
+	}
+	
+	h3 {
+		
+		color: $mediumpink;
+		margin-bottom: $base-line-height * 3;
+		
+		
+	}
+	
+}
+
+
+.about {
+	
+	@extend .row;
+	padding: 4rem;
+	background-color: $darkpink;
+	background-image: linear-gradient(45deg, $darkpink 0%,  $mediumpink 100%);
+	margin-bottom: $base-line-height;
+	
+	div:nth-child(1), div:nth-child(2) {
+		
+		@extend .col-md-6;
+		
+		h1 {
+			color: $skin;
+	
+		}
+		p {
+			color: white;
+			font-size: 1.6rem;
+			max-width: 48rem; 
+		}
+	}
+}
+
+.content {
+	@extend .row;
+	padding: 4rem;
+	div:nth-child(1) {
+		@extend .col-md-3;
+		padding-left: 0px;
+	}
+	div:nth-child(2) {
+		@extend .col-md-9;
+		padding-left: 0px;
+	}
+	
+	h3 {
+		color: $darkpink;
+	}
+	
+	ul {
+		color: $mediumpink;
+		list-style: none;
+		@include font ($lregular);
+		font-size: 1.6rem;
+		margin-left: 0px;
+		padding-left: 0px;
+		li {
+			
+		}
+	}
+}
+
+@mixin tab-styling-active {
+	background: $darkpink;
+	color: $lightpink;
+	border: 0.2rem solid $darkpink;
+} 
+
+.code {
+	
+	margin-top: $base-line-height;
+	ul {
+		@extend .nav, .nav-tabs;
+		border-bottom: none;
+	
+		&>li.active a {
+			@include tab-styling-active;
+			
+			&:hover, &:focus {
+				@include tab-styling-active;
+			}
+		}
+		li a {
+			background: $mediumpink;
+			color: $darkpink;
+
+			&:hover {
+				background: $lightpink;
+				border-color: $lightpink;
+			}	
+
+		}
+	}
+}
+
+
+// Fixes
+
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+ 
+	background: transparent;
+	border:none;
+	
+}
+
+.tab-pane  {
+	background: #F8F8F8;
+}
+
+
+.tab-pane.active {
+	border:0.2rem solid $darkpink;
+	
+}
+
+.tab-pane.active, pre.language-css, .tab-content {
+	width: 100% !important;
+}
+

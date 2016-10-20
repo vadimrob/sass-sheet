@@ -1,0 +1,372 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="build/css/styles.min.css">
+	</head>
+	 <body>
+		<div class="topbar"></div>
+		<div class="container-fluid">
+			<div class="header">
+				<header>
+					<a href="http://www.vadimrob.com/"><img src="build/img/logo.png"></a>
+					<h3>quick reference for your favorite tool</h3>
+				</header>
+			</div>
+			
+			<div class="about">
+				<div>
+					<h1>What is Sass?</h1>
+					<p>Sass is an extension language that brings powerfull features that you can use with your CSS.</p>
+				</div>
+				<div>
+					<h1>Who is this page for?</h1>
+					<p>This page is for the experienced CSS users who want to quickly learn Sass and add it to their toolbelt, or for the ones who already know Sass and want a quick memory refresher.</p>
+				</div>
+			</div>
+			
+			<div class="content">
+				<div>
+					<h3>Content</h3>
+					<ul>
+						<li><a href="#installing">Install Sass</a></li>
+						<li>Convert & Watch</li>
+						<li>Watch Files</li>
+						<li>Comments</li>
+					</ul>
+				</div>
+				<div>
+					<h2 id="installing">Installing Sass</h2>
+					<p>This command will install Sass on macOS via Command Line. For other OS's see instructions <a href="http://sass-lang.com/install" target="_blank" >here.</a></p>
+					
+					<div class="code">
+						<ul role="tablist">
+						    <li role="presentation" class="active"><a href="#scss" aria-controls="scss" role="tab" data-toggle="tab">Bash</a></li>
+						    
+						</ul>
+						<div class="tab-content">
+						    <div role="tabpanel" class="tab-pane active" id="scss">
+							    <pre>
+								    <code class="language-bash"> 
+### Installing SASS
+$ sudo gem install sass
+
+### Check installed version
+$ sass -v
+
+### Update to latest version
+$ sudo gem update sass
+								    </code>
+								</pre>
+						    </div>
+						    
+						</div>
+					</div>	
+				</div>
+			</div>
+			
+			
+			
+			
+			<div class="content">
+				<div>
+				</div>
+				<div>
+					<h2 id="converting">Convert & Watch</h2>
+					<p>To use your Sass file with your website you must first compile (convert) it to CSS. You can also "watch" files so Sass will automatically compile changed files.</p>
+					
+					<div class="code">
+						<ul role="tablist">
+						    <li role="presentation" class="active"><a href="#scss2" aria-controls="scss" role="tab" data-toggle="tab">Bash</a></li>
+						    
+						</ul>
+						<div class="tab-content">
+						    <div role="tabpanel" class="tab-pane active" id="scss2">
+							    <pre>
+								    <code class="language-bash">
+### Convert SASS to CSS
+$ sass file_X.scss:file_Y.css
+
+### Watch files
+$ sass --watch file.scss:file.css
+
+### Watch directories
+$ sass --watch dir_scss:dir_css
+							    </code>
+								</pre>
+						    </div>
+						    
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+			<div class="content">
+				<div>
+				</div>
+				<div>
+					<h2>Comments</h2>
+					<p>Single line comments are removed at compilation in the CSS file. Multiline comments are not removed, only for compressed style format which you also can overide with "!".</p>
+					
+					<div class="code">
+						<ul role="tablist">
+						    <li role="presentation" class="active"><a href="#scss3" aria-controls="scss" role="tab" data-toggle="tab">SCSS</a></li>
+						    <li role="presentation"><a href="#css3" aria-controls="css" role="tab" data-toggle="tab">CSS</a></li>
+						</ul>
+						<div class="tab-content">
+						    <div role="tabpanel" class="tab-pane active" id="scss3">
+							    <pre>
+								    <code class="language-scss">
+// Single
+// Line
+// Comments
+
+/* Multi line comment that will appear in the final css file */
+
+/*! Multi line comment that will appear in the final .css file. even in compressed style. */
+								    </code>
+								</pre>
+						    </div>
+						    <div role="tabpanel" class="tab-pane" id="css3">
+							    <pre>
+								    <code class="language-css">
+/* Multi line comment that will appear in the final css file */
+	   
+/*! Multi line comment that will appear in the final .css file. even in compressed style. */
+									</code>
+								</pre>
+						    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+			
+			<div class="content">
+				<div>
+				</div>
+				<div>
+					<h2>Output Style</h2>
+					<p>It works by passing the <code class="language-bash">--style</code> flag along with one of the options "nested", "expanded", "compact" or "compressed" to the "sass" command line interface tool. Example: <code class="language-bash">sass file.scss:file.css --style compressed</code>.</p>
+					
+					<div class="code">
+						<ul role="tablist">
+						    <li role="presentation" class="active"><a href="#scss4" aria-controls="scss" role="tab" data-toggle="tab">CSS</a></li>
+						    
+						</ul>
+						<div class="tab-content">
+						    <div role="tabpanel" class="tab-pane active" id="scss4">
+							    <pre>
+								    <code class="language-css">
+// Nested -default
+
+ul {
+  margin: 20px 0;
+  padding: 20px 0; }
+  ul li {
+    font-size: 2em;
+    line-height: 1.4; }
+    ul li p {
+      color: #FFF; }
+
+
+// Expanded
+
+ul {
+  margin: 20px 0;
+  padding: 20px 0;
+}
+ 
+ul li {
+  font-size: 2em;
+  line-height: 1.4;
+}
+ 
+ul li p {
+  color: #FFF;
+}
+
+
+// Compact
+
+ul li { font-size: 2em; line-height: 1.4; }
+ul li p { color: #FFF; }
+
+
+// Compressed
+
+ul{margin:20px 0;padding:20px 0;}ul li{font-size:2em;line-height:1.4;}ul li p{color:#FFF;}
+								    </code>
+								</pre>
+						    </div>
+						    
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+			<div class="content">
+				<div>
+				</div>
+				<div>
+					<h2>Nesting</h2>
+					<p>To create visual hierarchy and avoid repetition you nest CSS selectors in a way similar to how HTML looks.</p>
+					
+					<div class="code">
+						<ul role="tablist">
+						    <li role="presentation" class="active"><a href="#scss5" aria-controls="scss" role="tab" data-toggle="tab">SCSS</a></li>
+						    <li role="presentation"><a href="#css5" aria-controls="css" role="tab" data-toggle="tab">CSS</a></li>
+						</ul>
+						<div class="tab-content">
+						    <div role="tabpanel" class="tab-pane active" id="scss5">
+							    <pre>
+								    <code class="language-scss">
+nav {
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    li {
+        display: inline-block;
+    } 
+}
+
+
+// You can also nest namespace properties
+
+header[role="banner"] h1 {
+  padding: 15px 0;
+  font: {
+    size: 54px;
+    family: Jubilat, Georgia, serif;
+    weight: bold;
+  }
+  line-height: 1;
+}
+								    </code>
+								</pre>
+						    </div>
+						    <div role="tabpanel" class="tab-pane" id="css5">
+							    <pre>
+								    <code class="language-css">
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav li {
+  display: inline-block;
+}
+
+
+// You can also nest namespace properties
+
+header[role="banner"] h1 {
+  padding: 15px 0;
+  font-size: 54px;
+  font-family: Jubilat, Georgia, serif;
+  font-weight: bold;
+  line-height: 1;
+}
+									</code>
+								</pre>
+						    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+			<div class="content">
+				<div>
+				</div>
+				<div>
+					<h2>Importing & Partials</h2>
+					<p>Partials are a way of separating/grouping Sass code into different files for easier management of the code.</p>
+					
+					<div class="code">
+						<ul role="tablist">
+						    <li role="presentation" class="active"><a href="#scss6" aria-controls="scss" role="tab" data-toggle="tab">SCSS</a></li>
+						    						</ul>
+						<div class="tab-content">
+						    <div role="tabpanel" class="tab-pane active" id="scss6">
+							    <pre>
+								    <code class="language-scss">
+// Partial files start with a "_": _partial.scss
+
+// You import a partial with:
+@import 'partial';
+								    </code>
+								</pre>
+						    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+			<div class="content">
+				<div>
+				</div>
+				<div>
+					<h2>Variables</h2>
+					<p>One of the best features of Sass are variables, because they are reusable blocks of values.</p>
+					
+					<div class="code">
+						<ul role="tablist">
+						    <li role="presentation" class="active"><a href="#scss7" aria-controls="scss" role="tab" data-toggle="tab">SCSS</a></li>
+						    <li role="presentation"><a href="#css7" aria-controls="css" role="tab" data-toggle="tab">CSS</a></li>
+						</ul>
+						<div class="tab-content">
+						    <div role="tabpanel" class="tab-pane active" id="scss7">
+							    <pre>
+								    <code class="language-scss">
+// Usage: $css-property: value;
+
+
+$primary-color: #333;
+
+body {
+    color: $primary-color;
+}
+
+div {
+    border-color: $primary-color;
+}
+								    </code>
+								</pre>
+						    </div>
+						    
+							<div role="tabpanel" class="tab-pane" id="css7">
+							    <pre>
+								    <code class="language-css">
+body {
+  color: #333;
+}
+
+div {
+  border-color: #333;
+}
+
+									</code>
+								</pre>
+						    </div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+		</div>
+	
+
+		
+		<script src="build/js/production.min.js"></script>
+		<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+	</body>
+</html>
