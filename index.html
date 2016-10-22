@@ -28,9 +28,14 @@
 					<h3>Content</h3>
 					<ul>
 						<li><a href="#installing">Install Sass</a></li>
-						<li>Convert & Watch</li>
-						<li>Watch Files</li>
-						<li>Comments</li>
+						<li><a href="#convert">Convert & Watch</a></li>
+						<li><a href="#comments">Comments</a></li>
+						<li><a href="#output">Output Style</a></li>
+						<li><a href="#nesting">Nesting</a></li>
+						<li><a href="#partials">Importing & Partials</a></li>
+						<li><a href="#variables">Variables</a></li>
+						<li><a href="#mixins">Mixins</a></li>
+						<li><a href="#extend">Extend / Inheritance</a></li>
 					</ul>
 				</div>
 				<div>
@@ -70,7 +75,7 @@ $ sudo gem update sass
 				<div>
 				</div>
 				<div>
-					<h2 id="converting">Convert & Watch</h2>
+					<h2 id="convert">Convert & Watch</h2>
 					<p>To use your Sass file with your website you must first compile (convert) it to CSS. You can also "watch" files so Sass will automatically compile changed files.</p>
 					
 					<div class="code">
@@ -104,7 +109,7 @@ $ sass --watch dir_scss:dir_css
 				<div>
 				</div>
 				<div>
-					<h2>Comments</h2>
+					<h2 id="comments">Comments</h2>
 					<p>Single line comments are removed at compilation in the CSS file. Multiline comments are not removed, only for compressed style format which you also can overide with "!".</p>
 					
 					<div class="code">
@@ -146,7 +151,7 @@ $ sass --watch dir_scss:dir_css
 				<div>
 				</div>
 				<div>
-					<h2>Output Style</h2>
+					<h2 id="output">Output Style</h2>
 					<p>It works by passing the <code class="language-bash">--style</code> flag along with one of the options "nested", "expanded", "compact" or "compressed" to the "sass" command line interface tool. Example: <code class="language-bash">sass file.scss:file.css --style compressed</code>.</p>
 					
 					<div class="code">
@@ -210,7 +215,7 @@ ul{margin:20px 0;padding:20px 0;}ul li{font-size:2em;line-height:1.4;}ul li p{co
 				<div>
 				</div>
 				<div>
-					<h2>Nesting</h2>
+					<h2 id="nesting">Nesting</h2>
 					<p>To create visual hierarchy and avoid repetition you nest CSS selectors in a way similar to how HTML looks.</p>
 					
 					<div class="code">
@@ -285,7 +290,7 @@ header[role="banner"] h1 {
 				<div>
 				</div>
 				<div>
-					<h2>Importing & Partials</h2>
+					<h2 id="partials">Importing & Partials</h2>
 					<p>Partials are a way of separating/grouping Sass code into different files for easier management of the code.</p>
 					
 					<div class="code">
@@ -313,7 +318,7 @@ header[role="banner"] h1 {
 				<div>
 				</div>
 				<div>
-					<h2>Variables</h2>
+					<h2 id="variables">Variables</h2>
 					<p>One of the best features of Sass are variables, because they are reusable blocks of values.</p>
 					
 					<div class="code">
@@ -360,6 +365,167 @@ div {
 					</div>
 				</div>
 			</div>
+			
+			
+			<div class="content">
+				<div>
+				</div>
+				<div>
+					<h2 id="mixins">Mixins</h2>
+					<p>You can use mixins with variables as arguments or with absolute values. Mixins are reusable blocks of style. Tip: You can create a _mixin.scss file with your favorite most useful mixins so you can reuse it on other project. You can also use a already existing mixin library like Compass or Bourbon.</p>
+					
+					<div class="code">
+						<ul role="tablist">
+						    <li role="presentation" class="active"><a href="#scss8" aria-controls="scss" role="tab" data-toggle="tab">SCSS</a></li>
+						    <li role="presentation"><a href="#css8" aria-controls="css" role="tab" data-toggle="tab">CSS</a></li>
+						</ul>
+						<div class="tab-content">
+						    <div role="tabpanel" class="tab-pane active" id="scss8">
+							    <pre>
+								    <code class="language-scss">
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+.box { @include border-radius(10px); }
+
+
+// Multiple arguments even with default arguments
+
+@mixin title-style($color, $background: #eee) {
+  margin: 0 0 20px 0;
+  font-family: Arial;
+  color: $color;
+  background: $background;
+}
+
+section-one {
+  @include title-style(#c63, #eee);
+}
+section-two {
+  @include title-style(#39c, #333);
+}
+								    </code>
+								</pre>
+						    </div>
+						    
+							<div role="tabpanel" class="tab-pane" id="css8">
+							    <pre>
+								    <code class="language-css">
+.box {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+}
+
+section-one {
+  margin: 0 0 20px 0;
+  font-family: Arial;
+  color: #c63;
+  background: #eee;
+}
+
+section-two {
+  margin: 0 0 20px 0;
+  font-family: Arial;
+  color: #39c;
+  background: #333;
+}
+									</code>
+								</pre>
+						    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+			<div class="content">
+				<div>
+				</div>
+				<div>
+					<h2 id="extend">Extend / Inheritance</h2>
+					<p>Share a set of CSS properties from one selector to another. Again helps you declutter your code.</p>
+					
+					<div class="code">
+						<ul role="tablist">
+						    <li role="presentation" class="active"><a href="#scss9" aria-controls="scss" role="tab" data-toggle="tab">SCSS</a></li>
+						    <li role="presentation"><a href="#css9" aria-controls="css" role="tab" data-toggle="tab">CSS</a></li>
+						</ul>
+						<div class="tab-content">
+						    <div role="tabpanel" class="tab-pane active" id="scss9">
+							    <pre>
+								    <code class="language-scss">
+.message {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+.success {
+  @extend .message;
+  border-color: green;
+}
+
+
+// Using placeholder selectors with @extend
+
+%button {
+  padding: 10px;
+  font-weight: bold;
+  background: blue;
+}
+  
+  
+// We can call this rule set in other classes as we did previously, using @extend
+
+.buy {
+  @extend %button;
+}
+.submit {
+  @extend %button;
+  background: green;
+}
+
+// Sass will compile this like an extended class, but the %button placeholder rule set won’t appear in the output.
+								    </code>
+								</pre>
+						    </div>
+						    
+							<div role="tabpanel" class="tab-pane" id="css9">
+							    <pre>
+								    <code class="language-css">
+.message, .success {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+.success {
+  border-color: green;
+}
+
+.buy, .submit {
+  padding: 10px;
+  font-weight: bold;
+  background: blue;
+}
+
+.submit {
+  background: green;
+}
+									</code>
+								</pre>
+						    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 			
 			
 		</div>
