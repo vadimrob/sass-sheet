@@ -21,7 +21,8 @@ module.exports = function(grunt) {
         concat: {   
               dist: {
                   src: [
-                        'lib/**/*.js', // All JS in the libs folder
+                        'lib/**/*.js',
+                        'js/*.js', // All JS in the libs folder
                         
                   ],
                   dest: 'build/js/production.js'
@@ -43,7 +44,7 @@ module.exports = function(grunt) {
 		        },
 		        dist: {
 		            files: {
-		                'build/css/styles.min.css': 'stylesheets/scss/style.scss'
+		                'build/css/styles.min.css': ['stylesheets/scss/style.scss']
 		            }
 		        }
 			
@@ -69,7 +70,7 @@ module.exports = function(grunt) {
                     livereload: false,
                },
               scripts: {
-                    files: ['lib/**/*.js'],
+                    files: ['lib/**/*.js', 'js/*.js'],
                     tasks: ['concat', 'uglify'],
                     options: {
                          spawn: false,
@@ -87,7 +88,7 @@ module.exports = function(grunt) {
         
 			    images: {
 			      files: ['images/*.{png,jpg,gif}'],
-			      tasks: ['imagemin:single'],
+			      tasks: [''],
 			      options: {
 			      spawn: false,
 			      }

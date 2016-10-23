@@ -6,35 +6,9 @@
 @import "../../public/components/prism.css";
 @import "../../public/components/sass-bootstrap/lib/bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
-
-// Colors
-
-$darkpink: #C4558C;
-$mediumpink: #F4ACB7;
-$lightpink: #FFCAD4;
-$lightgreen: #D8E2DC;
-$skin: #FFE5D9;
-
-
-// Vertical Rhythm
-
-$base-font-size: 1rem;
-$base-line-height: $base-font-size * 1.25;
-
-
-// Fonts
-
-$llight: 300;
-$lregular: 400;
-$lmedium: 700;
-$lbold: 900;
-
-@mixin font ($font_weight) {
-	
-		font-family: 'Lato';
-		font-weight: $font_weight;
-		
-	}
+@import "../../public/components/font-awesome/css/font-awesome.css";
+@import "variables";
+@import "mixins";
 
 html { font-size: 62.5%; }  /* =10px */
 body { font-size: 1.6rem; line-height: 1.61803399; } /* =14px */
@@ -52,7 +26,6 @@ a 	 { color: $mediumpink; }
 }
 
 .topbar {
-	
 	height: 0.4rem;
 	background-image: linear-gradient(-90deg, $darkpink 0%, $skin 29%, $lightpink 52%, $lightgreen 76%, $mediumpink 100%);
 	margin-bottom: $base-line-height * 3;
@@ -105,8 +78,10 @@ a 	 { color: $mediumpink; }
 	}
 }
 
+
 .content {
 	@extend .row;
+	@include hover_alt;
 	padding: 4rem;
 	div:nth-child(1) {
 		@extend .col-md-3;
@@ -134,11 +109,6 @@ a 	 { color: $mediumpink; }
 	}
 }
 
-@mixin tab-styling-active {
-	background: $darkpink;
-	color: $lightpink;
-	border: 0.2rem solid $darkpink;
-} 
 
 .code {
 	
@@ -191,3 +161,81 @@ a 	 { color: $mediumpink; }
 	width: 100% !important;
 }
 
+
+.footer {
+	@extend .row;
+	padding: 4rem;
+	color:$lightpink;
+	background-color: $darkpink;
+	background-image: linear-gradient(-45deg, $darkpink 0%,  $mediumpink 100%);
+	a {
+		color: white;
+		&:hover {
+			color: white;
+			text-decoration: none;
+		}
+	}
+	div:nth-child(1), div:nth-child(2), div:nth-child(3) {
+		
+		@extend .col-md-4;
+		
+		}
+		
+	margin-bottom: 0rem;
+	div:nth-child(2) {
+		color:$lightpink;
+		text-align: center;
+		
+		a {
+			
+			text-decoration: none;
+		
+		}
+	}
+	
+	div:nth-child(3) {
+		i {
+			font-size: $base-font-size * 2;
+		}
+	}
+	
+	img {
+		
+		width: 80px;
+	}
+	
+	a {
+		&:link {
+			opacity: 0.6;
+		}
+		&:hover {
+			
+			opacity: 0.8;
+			
+		}
+	}
+}
+
+
+// Media Queries
+
+@media (min-width: 992px) { 
+	
+	.fixed{
+		margin-top: -45%;
+		position:fixed;
+	}
+}
+
+@media (max-width: 400px) {
+	.footer, .about, .sidebar {
+		text-align: center;
+		}
+	.sidebar {
+		margin-bottom: $base-line-height * 4;
+		h3 {
+			font-size: $base-font-size * 4;
+		}
+		a {font-size: $base-font-size * 2;}
+	}
+}

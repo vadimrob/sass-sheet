@@ -14,10 +14,10 @@ $(window).scroll(function() {
 
 // Smooth scroll for links
 
-$(document).on('click', 'a', function(event){
+$(document).on('click', '.sidebar a', function(event){
     event.preventDefault();
 
     $('html, body').animate({
         scrollTop: $( $.attr(this, 'href') ).offset().top
-    }, 500);
+    }, 580);
 });

@@ -1,0 +1,22 @@
+@mixin font ($font_weight) {
+	
+		font-family: 'Lato';
+		font-weight: $font_weight;
+		
+	}
+	
+@mixin hover_alt {
+	a {
+		&:hover, &:active, &:focus {
+			color:$darkpink;
+			font-weight: bold;
+			}
+		
+	}
+}
+
+@mixin tab-styling-active {
+	background: $darkpink;
+	color: $lightpink;
+	border: 0.2rem solid $darkpink;
+} 
