@@ -1,6 +1,8 @@
 <html>
 	<head>
 		<title>Sass Sheet - Quick reference for your favorite language</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="This page is for those who want to quickly learn Sass, or for the ones who want a quick memory refresher.">
 		<meta name="keywords" content="learn,scss,sass,tutorial,reference,css">
 		<meta name="author" content="Vadim Rob">
@@ -20,7 +22,7 @@
 			<div class="about">
 				<div>
 					<h1>What is Sass?</h1>
-					<p>Sass is an extension language that brings powerfull features that you can use with your CSS.</p>
+					<p>Sass is an extension language that brings powerful features that you can use with your CSS.</p>
 				</div>
 				<div>
 					<h1>Who is this page for?</h1>
@@ -32,7 +34,6 @@
 				<div class="sidebar" >
 					<ul>
 					<h3>Content</h3>
-				
 						<li><a href="#installing">Install Sass</a></li>
 						<li><a href="#convert">Convert & Watch</a></li>
 						<li><a href="#comments">Comments</a></li>
@@ -42,6 +43,9 @@
 						<li><a href="#variables">Variables</a></li>
 						<li><a href="#mixins">Mixins</a></li>
 						<li><a href="#extend">Extend / Inheritance</a></li>
+						<li><a href="#operators">Operators</a></li>
+						<li><a href="#mediaqueries">Media Queries</a></li>
+						<li><a href="#boxshadow">Box Shadow Mixin</a></li>
 					</ul>
 				</div>
 				<div>
@@ -116,7 +120,7 @@ $ sass --watch dir_scss:dir_css
 				</div>
 				<div>
 					<h2 id="comments">Comments</h2>
-					<p>Single line comments are removed at compilation in the CSS file. Multiline comments are not removed, only for compressed style format which you also can overide with "!".</p>
+					<p>Single line comments are removed at compilation in the CSS file. Multiline comments are not removed, only for compressed style format which you also can override with "!".</p>
 					
 					<div class="code">
 						<ul role="tablist">
@@ -532,6 +536,175 @@ section-two {
 				</div>
 			</div>
 
+
+
+			<div class="content">
+				<div>
+				</div>
+				<div>
+					<h2 id="operators">Operators</h2>
+					<p>Gives you flexibility so you can either reduce class numbers to keep your code clean, or has practical applications such as creating layouts and vertical enforce vertical rhythm.</p>
+					
+					<div class="code">
+						<ul role="tablist">
+						    <li role="presentation" class="active"><a href="#scss10" aria-controls="scss" role="tab" data-toggle="tab">SCSS</a></li>
+						    <li role="presentation"><a href="#css10" aria-controls="css" role="tab" data-toggle="tab">CSS</a></li>
+						</ul>
+						<div class="tab-content">
+						    <div role="tabpanel" class="tab-pane active" id="scss10">
+							    <pre>
+								    <code class="language-scss">
+.container { width: 100%; }
+
+
+article[role="main"] {
+  float: left;
+  width: 600px / 960px * 100%;
+}
+
+aside[role="complementary"] {
+  float: right;
+  width: 300px / 960px * 100%;
+}
+								    </code>
+								</pre>
+						    </div>
+						    
+							<div role="tabpanel" class="tab-pane" id="css10">
+							    <pre>
+								    <code class="language-css">
+.container {
+  width: 100%;
+}
+
+article[role="main"] {
+  float: left;
+  width: 62.5%;
+}
+
+aside[role="complementary"] {
+  float: right;
+  width: 31.25%;
+}
+									</code>
+								</pre>
+						    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+			<div class="content">
+				<div>
+				</div>
+				<div>
+					<h2 id="mediaqueries">Media Queries</h2>
+					<p>Sass let's you manipulate media queries in very effective ways like nesting. So you can see on spot for every element, the responsive behavior associated.</p>
+					
+					<div class="code">
+						<ul role="tablist">
+						    <li role="presentation" class="active"><a href="#scss11" aria-controls="scss" role="tab" data-toggle="tab">SCSS</a></li>
+						    <li role="presentation"><a href="#css11" aria-controls="css" role="tab" data-toggle="tab">CSS</a></li>
+						</ul>
+						<div class="tab-content">
+						    <div role="tabpanel" class="tab-pane active" id="scss11">
+							    <pre>
+								    <code class="language-scss">
+section.main {
+  float: left;
+  width: 65%;
+  font-size: 16px;
+  line-height: 1.4;
+ 
+  @media screen and (max-width: 800px) {
+    float: none;
+    width: auto;
+  }
+ 
+  @media screen and (max-width: 500px) {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+}
+								    </code>
+								</pre>
+						    </div>
+						    
+							<div role="tabpanel" class="tab-pane" id="css11">
+							    <pre>
+								    <code class="language-css">
+section.main {
+  float: left;
+  width: 65%;
+  font-size: 16px;
+  line-height: 1.4;
+}
+@media screen and (max-width: 800px) {
+  section.main {
+    float: none;
+    width: auto;
+  }
+}
+@media screen and (max-width: 500px) {
+  section.main {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+}
+									</code>
+								</pre>
+						    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="content">
+				<div>
+				</div>
+				<div>
+					<h2 id="boxshadow">Box Shadow Mixin</h2>
+					<p></p>
+					
+					<div class="code">
+						<ul role="tablist">
+						    <li role="presentation" class="active"><a href="#scss12" aria-controls="scss" role="tab" data-toggle="tab">SCSS</a></li>
+						    <li role="presentation"><a href="#css12" aria-controls="css" role="tab" data-toggle="tab">CSS</a></li>
+						</ul>
+						<div class="tab-content">
+						    <div role="tabpanel" class="tab-pane active" id="scss12">
+							    <pre>
+								    <code class="language-scss">
+@mixin shadow($x, $y, $blur, $color) {
+  -webkit-box-shadow: $x $y $blur $color;
+     -moz-box-shadow: $x $y $blur $color;
+          box-shadow: $x $y $blur $color;
+}
+
+section.main {
+	@include shadow(0, 3px, 6px, rgba(0,0,0,.5));
+}
+								    </code>
+								</pre>
+						    </div>
+						    
+							<div role="tabpanel" class="tab-pane" id="css12">
+							    <pre>
+								    <code class="language-css">
+section.main {
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+}
+									</code>
+								</pre>
+						    </div>
+						</div>
+					</div>
+				</div>
+			</div>
 			
 			
 		</div>

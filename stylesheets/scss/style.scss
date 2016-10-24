@@ -138,30 +138,6 @@ a 	 { color: $mediumpink; }
 }
 
 
-// Fixes
-
-:not(pre) > code[class*="language-"], pre[class*="language-"] {
- 
-	background: transparent;
-	border:none;
-	
-}
-
-.tab-pane  {
-	background: #F8F8F8;
-}
-
-
-.tab-pane.active {
-	border:0.2rem solid $darkpink;
-	
-}
-
-.tab-pane.active, pre.language-css, .tab-content {
-	width: 100% !important;
-}
-
-
 .footer {
 	@extend .row;
 	padding: 4rem;
@@ -239,3 +215,34 @@ a 	 { color: $mediumpink; }
 		a {font-size: $base-font-size * 2;}
 	}
 }
+
+
+// Fixes
+
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+ 
+	background: transparent;
+	border:none;
+	
+}
+
+.tab-pane  {
+	background: #F8F8F8;
+}
+
+
+.tab-pane.active {
+	border:0.2rem solid $darkpink;
+	
+}
+
+.tab-pane.active, pre.language-css, .tab-content {
+	width: 100% !important;
+}
+
+pre {
+	border:none;
+	background: #F8F8F8;
+	@include white-space;
+}
+
